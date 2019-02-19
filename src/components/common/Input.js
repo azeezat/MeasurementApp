@@ -1,12 +1,18 @@
 import React from 'react';
 import { TextInput, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
+import Colours from './Colours';
 
 const Input = ({ iconName, value, onChangeText, placeholder, secureTextEntry }) => {
     const { inputStyle, containerStyle, labelStyle } = styles
     return (
         <View style={containerStyle}>
-             
+            <Ionicons
+                name={iconName}
+                size={50}
+                color={Colours.button}
+                style={labelStyle}
+            />
             <TextInput
                 placeholder={placeholder}
                 style={inputStyle}
@@ -15,10 +21,8 @@ const Input = ({ iconName, value, onChangeText, placeholder, secureTextEntry }) 
                 onChangeText={onChangeText}
                 secureTextEntry={secureTextEntry}
             />
-            <Ionicons 
-                name={iconName} 
-                size={32} 
-                color="green" />
+
+
         </View>
     );
 };
@@ -29,14 +33,16 @@ const styles = {
         fontSize: 18,
         flex: 1,
         height: 40,
-        borderColor: 'purple',
+        borderColor: Colours.button,
         borderWidth: 2,
         borderRadius: 20,
-        paddingLeft: 20
+        paddingLeft: 40,
     },
     labelStyle: {
-        position: "absolute",
-        fontSize: 15,
+        fontSize: 22,
+        right: -30,
+        zIndex: 1
+
     },
     containerStyle: {
         height: 40,

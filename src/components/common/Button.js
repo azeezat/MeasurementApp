@@ -1,12 +1,10 @@
 //Import Libraries for making a component
 import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
-
-
+import Colours from './Colours';
 
 const Button = ({onPress, children}) => {
     const { textStyle, buttonStyle } = styles
-
     return (
         <TouchableOpacity style={buttonStyle} onPress={onPress}>
             <Text style={textStyle}>{children}</Text>
@@ -21,16 +19,17 @@ const styles = {
         fontSize: 16,
         fontWeight: '600',
         paddingTop: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
+        fontFamily: 'lobstar'
     },
     buttonStyle: {
         flex: 1,
         alignSelf: 'stretch',
-        backgroundColor: 'purple',
+        backgroundColor: Colours.button,
         borderRadius: 20,
         borderWidth: 0,
-        borderColor: 'gold',
-        marginLeft: 5,
+        borderColor: Colours.button,
+        marginLeft: 15,
         marginRight: 5
     }
 }

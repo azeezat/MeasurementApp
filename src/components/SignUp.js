@@ -5,22 +5,27 @@ import { Input, Button, CardSection } from './common';
 import background from '../../assets/images/backgroundImage.jpg'
 import Colours from './common/Colours';
 
-class Login extends Component {
+class SignUp extends Component {
     state = {
         fontLoaded: false,
     };
 
-    _onSignupClick=()=>{
-        Actions.main()
+    _onBackClick=()=>{
+        Actions.auth()
     }
+
     render() {
         const { container, headerTextStyle, signUpLinkStyle } = styles
         return (
             <ImageBackground source={background} style={container}>
-                <Text style={headerTextStyle}>Auna</Text>
+                <Text style={headerTextStyle}>Sign Up</Text>
 
                 <CardSection>
-                    <Input placeholder="Email" iconName={"md-person"}/>
+                    <Input placeholder="Full names" iconName={"md-person"}/>
+                </CardSection>
+
+                <CardSection>
+                    <Input placeholder="Email" iconName={"md-mail"}/>
                 </CardSection>
 
                 <CardSection>
@@ -28,15 +33,19 @@ class Login extends Component {
                 </CardSection>
 
                 <CardSection>
-                    <Button>Login</Button>
+                    <Input placeholder="Confirm Password" iconName={"md-lock"} />
+                </CardSection>
+
+                <CardSection>
+                    <Button>Sign Up</Button>
                 </CardSection>
 
                 <CardSection>
                     <Text 
-                        onPress={this._onSignupClick}
+                        onPress={this._onBackClick}
                         style={signUpLinkStyle}
                     >
-                        Sign Up
+                        Back to Login
                     </Text>
                 </CardSection>
 
@@ -69,4 +78,4 @@ const styles = {
     },
 }
 
-export default Login;
+export default SignUp;
