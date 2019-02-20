@@ -4,7 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase'
 import Router from './Router';
-import reducers from './reducers';
+import reducers from '../reducers';
 
 class RootComponent extends Component {
 

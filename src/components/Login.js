@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, ImageBackground, KeyboardAvoidingView } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux';
-import { Input, Button, CardSection, Message } from './common';
+import { Input, Button, CardSection, Message, Spinner } from './common';
 import { loginUser, handleChange } from './actions';
 import background from '../../assets/images/backgroundImage.jpg'
 import Colours from './constants/Colours';
@@ -19,14 +19,20 @@ class Login extends Component {
         this.props.loginUser({ email, password })
     }
 
+    renderButton = () => {
+        if (this.props.loading) {
+            return <Spinner colour={Colours.button} />
+        }
+        else {
+            return <Button onPress={this.loginUser}>Login</Button>
+        }
+    }
+
     renderError = () => {
         if (this.props.error) {
             return (
                 <Message content={this.props.error} />
             )
-        }
-        else {
-            return <Message content={this.props.error} />
         }
     }
 
@@ -60,7 +66,7 @@ class Login extends Component {
                     {this.renderError()}
 
                     <CardSection>
-                        <Button onPress={this.loginUser}>Login</Button>
+                        {this.renderButton()}
                     </CardSection>
 
                     <CardSection>
@@ -101,7 +107,8 @@ const styles = {
 
 const mapStateToProps = state => {
     const { email, password, error } = state.auth
-    return { email, password, error }
+    const { loading } = state.activity
+    return { email, password, error, loading }
 }
 
 export default connect(mapStateToProps, { loginUser, handleChange })(Login);

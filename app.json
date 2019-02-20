@@ -27,6 +27,7 @@
     },
     "android": {
       "package": "com.measurementapp"
-    }
+    },
+    "description": "An Application for taking measurements of all kinds"
   }
 }

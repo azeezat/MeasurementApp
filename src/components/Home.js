@@ -4,7 +4,7 @@ import {View} from 'react-native';
 class Home extends Component {
     render() {
         return (
-            <View>new</View>
+            <View>Home</View>
         );
     }
 }
