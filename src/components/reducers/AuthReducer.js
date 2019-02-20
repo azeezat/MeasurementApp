@@ -9,10 +9,10 @@ switch (action.type) {
     case LOGIN_USER_SUCCESS:
         return {...state, INITIAL_STATE, user: action.payload}
     case LOGIN_USER_FAIL:
-        return {...state, password:'', error:'Authentication Failed'}
-        case FIELD_UPDATE:
+        return {...state, password:'', error:action.payload.message}
+    case FIELD_UPDATE:
         //action.payload==={prop:'email', value 'email@email.com}
-        return { ...state, [action.payload.prop]: action.payload.value }
+        return { ...state, [action.payload.prop]: action.payload.value, error:'' }
         default:
         return state
 }

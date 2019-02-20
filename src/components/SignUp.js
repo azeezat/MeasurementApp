@@ -3,7 +3,7 @@ import { Text, ImageBackground, KeyboardAvoidingView } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { Input, Button, CardSection } from './common';
 import background from '../../assets/images/backgroundImage.jpg'
-import Colours from './common/Colours';
+import Colours from './constants/Colours';
 
 class SignUp extends Component {
     state = {

@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Text, ImageBackground, KeyboardAvoidingView } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux';
-import { Input, Button, CardSection } from './common';
+import { Input, Button, CardSection, Message } from './common';
 import { loginUser, handleChange } from './actions';
 import background from '../../assets/images/backgroundImage.jpg'
-import Colours from './common/Colours';
+import Colours from './constants/Colours';
+
 
 class Login extends Component {
 
@@ -18,8 +19,19 @@ class Login extends Component {
         this.props.loginUser({ email, password })
     }
 
+    renderError = () => {
+        if (this.props.error) {
+            return (
+                <Message content={this.props.error} />
+            )
+        }
+        else {
+            return <Message content={this.props.error} />
+        }
+    }
+
     render() {
-        console.log(this.props)
+        console.log(this.props.error)
         const { container, headerTextStyle, signUpLinkStyle } = styles
         return (
             <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding" enabled>
@@ -27,8 +39,8 @@ class Login extends Component {
                     <Text style={headerTextStyle}>Auna</Text>
 
                     <CardSection>
-                        <Input 
-                            placeholder="Email" 
+                        <Input
+                            placeholder="Email"
                             iconName={"md-person"}
                             value={this.props.email}
                             onChangeText={text => this.props.handleChange({ prop: "email", value: text })}
@@ -36,13 +48,16 @@ class Login extends Component {
                     </CardSection>
 
                     <CardSection>
-                        <Input 
-                            placeholder="Password" 
+                        <Input
+                            placeholder="Password"
                             iconName={"md-lock"}
                             value={this.props.password}
                             onChangeText={text => this.props.handleChange({ prop: "password", value: text })}
+                            secureTextEntry
                         />
                     </CardSection>
+
+                    {this.renderError()}
 
                     <CardSection>
                         <Button onPress={this.loginUser}>Login</Button>
@@ -54,11 +69,8 @@ class Login extends Component {
                             style={signUpLinkStyle}
                         >
                             Sign Up
-                    </Text>
+                        </Text>
                     </CardSection>
-
-
-
                 </ImageBackground>
             </KeyboardAvoidingView>
         );
@@ -88,8 +100,8 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-    const { email, password } = state.auth
-    return { email, password }
+    const { email, password, error } = state.auth
+    return { email, password, error }
 }
 
 export default connect(mapStateToProps, { loginUser, handleChange })(Login);

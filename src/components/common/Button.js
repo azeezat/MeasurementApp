@@ -1,7 +1,7 @@
 //Import Libraries for making a component
 import React from 'react'
 import { Text, TouchableOpacity } from 'react-native'
-import Colours from './Colours';
+import Colours from '../constants/Colours';
 
 const Button = ({onPress, children}) => {
     const { textStyle, buttonStyle } = styles
