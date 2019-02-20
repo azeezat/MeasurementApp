@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
-import {View} from 'react-native';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+import firebase from 'firebase'
 import Router from './Router';
+import reducers from './reducers';
 
 class RootComponent extends Component {
 
+    componentWillMount() {
+        const config = {
+            apiKey: "AIzaSyDNowCH72TU5LjVXo9ocpZ8MBZUyz_x48o",
+            authDomain: "measurementapp-aziziraheem.firebaseapp.com",
+            databaseURL: "https://measurementapp-aziziraheem.firebaseio.com",
+            projectId: "measurementapp-aziziraheem",
+            storageBucket: "measurementapp-aziziraheem.appspot.com",
+            messagingSenderId: "761925007405"
+        };
+        firebase.initializeApp(config);
+    }
+
     render() {
+        const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
         return (
-            <View>
-               <Router/> 
-            </View>
-        
+            <Provider store={store}>
+                <Router />
+            </Provider>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import RootComponent from './src/components/Router';
+import RootComponent from './src/components/RootComponent';
 import { AppLoading, Asset, Font } from 'expo';
 
 export default class App extends React.Component {
