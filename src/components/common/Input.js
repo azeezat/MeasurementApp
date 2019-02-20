@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
-import Colours from '../constants/Colours';
+import Colours from '../../constants/Colours';
 
 const Input = ({ iconName, value, onChangeText, placeholder, secureTextEntry }) => {
     const { inputStyle, containerStyle, labelStyle } = styles

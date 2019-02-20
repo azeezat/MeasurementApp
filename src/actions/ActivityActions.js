@@ -1,5 +1,4 @@
 import {FIELD_UPDATE, START_REQUEST, END_REQUEST} from '../constants/types';
-import { loadavg } from 'os';
 
 //update a form field
 export const handleChange = ({ prop, value }) => {
