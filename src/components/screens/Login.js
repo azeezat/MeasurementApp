@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Text, ImageBackground, KeyboardAvoidingView } from 'react-native';
 import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux';
-import { Input, Button, CardSection, Message, Spinner } from './common';
-import { loginUser, handleChange } from '../actions';
-import background from '../../assets/images/backgroundImage.jpg'
-import Colours from '../constants/Colours';
+import { Input, Button, CardSection, Message, Spinner } from '../common';
+import { loginUser, handleChange } from '../../actions';
+import background from '../../../assets/images/backgroundImage.jpg'
+import Colours from '../../constants/Colours';
 
 
 class Login extends Component {
@@ -37,7 +37,6 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.props.error)
         const { container, headerTextStyle, signUpLinkStyle } = styles
         return (
             <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding" enabled>

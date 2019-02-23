@@ -12,3 +12,9 @@ export const CREATE_USER_FAIL = 'create_user_fail'
 export const START_REQUEST ='start_request'
 export const END_REQUEST ='end_request'
 
+//Internet
+export const ONLINE ='online'
+export const OFFLINE ='offline'
+
+
+

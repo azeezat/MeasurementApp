@@ -26,43 +26,13 @@ const loginUserSuccess=(dispatch, user)=>{
         payload:user
     })
     //Navigate to another page
+    // NavigationActions.navigate({ routeName:'Main'})
     Actions.main()
 }
 
 const loginUserFail=(dispatch, error)=>{
     dispatch ({
         type: LOGIN_USER_FAIL, 
-        payload: error
-    })
-}
-
-//Create new user
-export const createUser = ({ email, password }) => {
-    return (dispatch) => {
-        dispatch({type:CREATE_USER})
-        firebase.auth().createUserWithEmailAndPassword(email,password)
-        .then(user => {
-                userCreateSuccess(dispatch, user)
-            })
-            .catch((error)=>{
-                createUserFail(dispatch, error)
-                console.log(error)
-            })
-    }
-}
-
-const userCreateSuccess=(dispatch, user)=>{
-    dispatch ({
-        type: CREATE_USER_SUCCESS, 
-        payload:user 
-    })
-    //Navigate to the home page
-    Actions.login()
-}
-
-const createUserFail=(dispatch, error)=>{
-    dispatch ({
-        type: CREATE_USER_FAIL, 
         payload: error
     })
 }

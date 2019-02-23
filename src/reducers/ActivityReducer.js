@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
         case START_REQUEST:
             return { ...state, loading: true }
         case END_REQUEST:
-            return { ...state, INITIAL_STATE}
+            return INITIAL_STATE
        
         default:
             return state

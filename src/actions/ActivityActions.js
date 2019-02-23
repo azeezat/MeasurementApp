@@ -1,4 +1,4 @@
-import {FIELD_UPDATE, START_REQUEST, END_REQUEST} from '../constants/types';
+import {FIELD_UPDATE, START_REQUEST, END_REQUEST, ONLINE, OFFLINE} from '../constants/types';
 
 //update a form field
 export const handleChange = ({ prop, value }) => {
@@ -9,17 +9,37 @@ export const handleChange = ({ prop, value }) => {
 }
 
 //start Api request
-export const startRequest = (loading) => {
+export const startRequest = () => {
     return {
         type: START_REQUEST,
-        payload: loading
     };
 }
 
 //start Api request
-export const endRequest = (loading) => {
+export const endRequest = () => {
     return {
         type: END_REQUEST,
-        payload: loading
+    };
+}
+
+//online
+onOnline= () => {
+    return (dispatch) => {
+        window.addEventListener('online', function() {
+            dispatch({
+                type: ONLINE
+            });
+        });
+    };
+}
+
+//oFFline
+onoffline= () => {
+    return (dispatch) => {
+        window.addEventListener('offline', function() {
+            dispatch({
+                type: OFFLINE
+            });
+        });
     };
 }
