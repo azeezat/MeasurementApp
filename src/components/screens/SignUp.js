@@ -22,7 +22,7 @@ class SignUp extends Component {
             return <Spinner colour={Colours.button} />
         }
         else {
-            return <Button onPress={this.signUpUser}>Login</Button>
+            return <Button onPress={this.signUpUser}>Sign Up</Button>
         }
     }
 
@@ -66,13 +66,16 @@ class SignUp extends Component {
 
                     <CardSection>
                         <Input
-                            placeholder="Password" iconName={"md-lock"}
+                            secureTextEntry
+                            placeholder="Password" 
+                            iconName={"md-lock"}
                             onChangeText={text => this.props.handleChange({ prop: "password", value: text })}
                         />
                     </CardSection>
 
                     <CardSection>
                         <Input
+                        secureTextEntry
                             placeholder="Confirm Password"
                             iconName={"md-lock"}
                             onChangeText={text => this.props.handleChange({ prop: "confirmPassword", value: text })}

@@ -1,15 +1,11 @@
-import { CREATE_USER_SUCCESS,CREATE_USER_FAIL, FIELD_UPDATE, START_REQUEST, END_REQUEST } from '../constants/types';
+import { CREATE_USER_SUCCESS,CREATE_USER_FAIL, FIELD_UPDATE} from '../constants/types';
 
 const INITIAL_STATE = {  fullName: '',email: '', password: '', confirmPassword: '', error: ''}
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case START_REQUEST:
-            return { ...state, loading: true }
-        case END_REQUEST:
-            return { ...state, loading: false }
         case CREATE_USER_SUCCESS:
-            return { ...state, INITIAL_STATE, user: action.payload }
+            return { INITIAL_STATE, user: action.payload }
         case CREATE_USER_FAIL:
             return { ...state, password: '', error: action.payload.message }
         case FIELD_UPDATE:
