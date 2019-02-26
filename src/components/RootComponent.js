@@ -4,6 +4,7 @@ import ReduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import firebase from 'firebase'
 import Router from './Router';
+// import Navigator from './navigation/AppNavigator';
 import reducers from '../reducers';
 
 class RootComponent extends Component {

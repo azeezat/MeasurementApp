@@ -29,7 +29,7 @@ const Input = ({ iconName, value, onChangeText, placeholder, secureTextEntry }) 
 
 const styles = {
     inputStyle: {
-        backgroundColor: 'white',
+        backgroundColor: Colours.text,
         fontSize: 18,
         flex: 1,
         height: 40,

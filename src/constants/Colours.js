@@ -1,7 +1,11 @@
+const themeColour ="#036675"
 export default {
     title: '#00B75D',
-    text: '#0C222B',
-    button: '#036675',
+    text: 'white',
+    button: themeColour,
     error: 'red',
-    success: 'green'
-  }
+    success: 'green',
+    tabIconDefault: '#ccc',
+    tabIconSelected: themeColour,
+    tabBar: '#fefefe',
+}

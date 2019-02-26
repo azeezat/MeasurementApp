@@ -1,7 +1,8 @@
 import firebase from 'firebase';
 import { LOGIN_USER_SUCCESS, LOGIN_USER_FAIL,
-CREATE_USER, CREATE_USER_SUCCESS, CREATE_USER_FAIL, START_REQUEST, END_REQUEST } from '../constants/types';
-import {Actions} from 'react-native-router-flux';
+START_REQUEST, END_REQUEST } from '../constants/types';
+import{Actions}from 'react-native-router-flux'
+import {NavigationActions } from 'react-navigation';
 
 //with redux thunk, an action creator now returns a function
 export const loginUser = ({ email, password }) => {
@@ -26,7 +27,6 @@ const loginUserSuccess=(dispatch, user)=>{
         payload:user
     })
     //Navigate to another page
-    // NavigationActions.navigate({ routeName:'Main'})
     Actions.main()
 }
 
@@ -35,4 +35,6 @@ const loginUserFail=(dispatch, error)=>{
         type: LOGIN_USER_FAIL, 
         payload: error
     })
+    Actions.main()
+    // NavigationActions.navigate({ routeName:'Main'})
 }
