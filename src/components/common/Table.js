@@ -1,42 +1,88 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import Colours from '../../constants/Colours';
 
 class Table extends Component {
 
   render() {
-    const { container, items1, items2 } = styles
+    const { container, tableHeaderItems, tableBody, tableBodyItems } = styles
     return (
+      <View>
         <View style={container}>
-          <View style={items1}>
-            <Text>Metric</Text>
+          <View style={tableHeaderItems}>
+            <Text>Title</Text>
           </View>
-          <View style={items2}>
+          <View style={tableHeaderItems}>
+            <Text>Title</Text>
+          </View>
+          <View style={tableHeaderItems}>
+            <Text>Title</Text>
+          </View>
+        </View>
+        <View style={tableBody}>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+          <View style={tableBodyItems}>
             <Text>Value</Text>
           </View>
         </View>
+        {/* <View style={container}>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+        </View>
+        <View style={tableBody}>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+          <View style={tableBodyItems}>
+            <Text>Value</Text>
+          </View>
+        </View> */}
+      </View>
+
     );
   }
 }
 
 styles = {
   container: {
+    paddingTop: 20,
+    marginHorizontal:10,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justiftContent:'center'
+    justiftContent: 'center',
   },
-  items1: {
-    backgrounfColor: 'red',
-    height: 80,
+
+  tableHeaderItems: {
     flex: 1,
-    alignItems: 'center'
+    backgroundColor: Colours.button,
+    borderWidth: 2,
+    borderColor:Colours.text,
+    alignItems: 'flex-start',
+    fontWeight: 'bold',
   },
-  items2: {
-    backgrounfColor: 'red',
-    height: 80,
-    flex: 2,
-    alignItems: 'center'
-  }
+
+  tableBodyItems: {
+    flex: 1,
+    paddingTop: 20,
+    alignItems: 'center',
+  },
+
 }
 
-export {Table}
+export { Table }

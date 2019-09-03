@@ -9,10 +9,10 @@ class RouterComponent extends Component {
         return (
             <Router>
                 <Scene key="root" hideNavBar>
-                    <Scene key="auth" hideNavBar>
+                    {/* <Scene key="auth" hideNavBar>
                         <Scene key="login" component={Login} initial />
                         <Scene key="signup" component={SignUp}/>
-                    </Scene>
+                    </Scene> */}
                     <Scene key="main" hideNavBar>
                         <Scene key="home" component={Home} />
                     </Scene>

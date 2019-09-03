@@ -23,7 +23,7 @@ export const endRequest = () => {
 }
 
 //online
-onOnline= () => {
+export const onOnline= () => {
     return (dispatch) => {
         window.addEventListener('online', function() {
             dispatch({
