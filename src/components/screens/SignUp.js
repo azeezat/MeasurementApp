@@ -127,7 +127,7 @@ const styles = {
     },
 }
 
-mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     const { fullName, email, password,confirmPassword, error } = state.signUp
     const { loading } = state.activity
     return { fullName, email, password,confirmPassword, loading, error }
